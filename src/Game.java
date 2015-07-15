@@ -63,7 +63,7 @@ public class Game extends Applet
     public GameBehaviorEnums behaviorEnums;
 
     /**************************
-     * Robot Speed
+     * pointer speed
      **************************/
     public static final int SPEED = 5;
 
@@ -234,55 +234,6 @@ public class Game extends Applet
                 break;
         }
 
-    }
-    public void update_RoBoT_() {
-
-            _RoBoT_.updateBOTPosition();
-
-            float Xpos = _RoBoT_.getPosition().x;
-            float Ypos = _RoBoT_.getPosition().y;
-
-            /********************************************************************
-             * Creating a toroidal world, to save the robot goes off to infinity.
-             ********************************************************************/
-            if (_RoBoT_.getPosition().x < -20)
-                Xpos = SCREENWIDTH + 20;
-            else if (_RoBoT_.getPosition().x > SCREENWIDTH + 20)
-                Xpos = -20;
-
-            if (_RoBoT_.getPosition().y < -20)
-                Ypos = SCREENHEIGHT + 20;
-            else if (_RoBoT_.getPosition().y > SCREENHEIGHT + 20)
-                Ypos = -20;
-
-            _RoBoT_.setPosition(new PVector(Xpos, Ypos));
-
-
-    }
-
-    public void update_COIN_() {
-        if (_COIN_.alive())
-        {
-            int w = _COIN_.getWidth() - 1;
-            int h = _COIN_.getHeight() - 1;
-
-            float Xpos = _COIN_.getPosition().x;
-            float Ypos = _COIN_.getPosition().y;
-
-            if (_COIN_.getPosition().x < -w)
-                Xpos = SCREENWIDTH + w;
-            else if (_COIN_.getPosition().x > SCREENWIDTH + w)
-                Xpos = -w;
-
-            if (_COIN_.getPosition().y < -h)
-                Ypos = SCREENHEIGHT + h;
-
-            else if (_COIN_.getPosition().y > SCREENHEIGHT + h)
-                Ypos = -h;
-
-            _COIN_.setPosition(new PVector(Xpos, Ypos));
-
-        }
     }
 
     public void _bot_Motion__FLEE(PVector target) {
